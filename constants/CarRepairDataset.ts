@@ -456,16 +456,3 @@ export const CarRepairDataset = [
     toolsRequired: "Compression tester, wrench, replacement parts"
   }
 ];
-
-// Helper function to find a solution from the dataset
-export function getDetailedSolution(symptoms: string): string {
-  const entry = CarRepairDataset.find((item) => item.symptoms === symptoms);
-  if (entry) {
-    return `Problem: ${entry.problem}
-      Solution: ${entry.solution}
-      Tools Required: ${entry.toolsRequired}
-      Steps: 
-${entry.detailedSteps.map((step, index) => `            ${index + 1}. ${step}`).join('\n')}`;
-  }
-  return "I'm sorry, I couldn't find a solution for that issue.";
-}
